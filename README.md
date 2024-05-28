@@ -1,7 +1,7 @@
 ```
     pip install -r requirements.txt
     
-    cd app
+    cd EmployeeManagement
     
     python manage.py migrate
     
