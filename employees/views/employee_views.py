@@ -6,32 +6,32 @@ class EmployeeViewSet(viewsets.ModelViewSet):
     serializer_class = EmployeeSerializer
 '''
 
-from rest_framework import viewsets, mixins
+from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView, UpdateAPIView, DestroyAPIView
 
 from employees.models import Employee
 from employees.serializers import EmployeeSerializer
 
 
-class EmployeeListViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
+class EmployeeListAPIView(ListAPIView):
     queryset = Employee.objects.all()
     serializer_class = EmployeeSerializer
 
 
-class EmployeeCreateViewSet(mixins.CreateModelMixin, viewsets.GenericViewSet):
+class EmployeeCreateAPIView(CreateAPIView):
     queryset = Employee.objects.all()
     serializer_class = EmployeeSerializer
 
 
-class EmployeeRetrieveViewSet(mixins.RetrieveModelMixin, viewsets.GenericViewSet):
+class EmployeeRetrieveAPIView(RetrieveAPIView):
     queryset = Employee.objects.all()
     serializer_class = EmployeeSerializer
 
 
-class EmployeeUpdateViewSet(mixins.UpdateModelMixin, viewsets.GenericViewSet):
+class EmployeeUpdateAPIView(UpdateAPIView):
     queryset = Employee.objects.all()
     serializer_class = EmployeeSerializer
 
 
-class EmployeeDestroyViewSet(mixins.DestroyModelMixin, viewsets.GenericViewSet):
+class EmployeeDestroyAPIView(DestroyAPIView):
     queryset = Employee.objects.all()
     serializer_class = EmployeeSerializer

@@ -1,19 +1,28 @@
-from rest_framework.routers import DefaultRouter
-from views.company_views import (
-    CompanyListViewSet,
-    CompanyCreateViewSet,
-    CompanyRetrieveViewSet,
-    CompanyUpdateViewSet,
-    CompanyDestroyViewSet
-)
+from django.urls import path
 
-app_name = 'Company'
-router = DefaultRouter()
+from employees.views import CompanyListAPIView, CompanyCreateAPIView, CompanyRetrieveAPIView, CompanyUpdateAPIView, \
+    CompanyDestroyAPIView, EmployeeListAPIView, EmployeeCreateAPIView, EmployeeRetrieveAPIView, EmployeeUpdateAPIView, \
+    EmployeeDestroyAPIView, DepartmentListAPIView, DepartmentCreateAPIView, DepartmentRetrieveAPIView, \
+    DepartmentUpdateAPIView, DepartmentDestroyAPIView
 
-router.register(r'Company-list', CompanyListViewSet, basename='Company-list')
-router.register(r'Company-create', CompanyCreateViewSet, basename='Company-create')
-router.register(r'Company-retrieve', CompanyRetrieveViewSet, basename='Company-retrieve')
-router.register(r'Company-update', CompanyUpdateViewSet, basename='Company-update')
-router.register(r'Company-destroy', CompanyDestroyViewSet, basename='Company-destroy')
+app_name = 'employees'
 
-urlpatterns = router.urls
+urlpatterns = [
+    path('companies/', CompanyListAPIView.as_view(), name='company-list'),
+    path('companies/create/', CompanyCreateAPIView.as_view(), name='company-create'),
+    path('companies/<int:pk>/', CompanyRetrieveAPIView.as_view(), name='company-retrieve'),
+    path('companies/<int:pk>/update/', CompanyUpdateAPIView.as_view(), name='company-update'),
+    path('companies/<int:pk>/delete/', CompanyDestroyAPIView.as_view(), name='company-delete'),
+
+    path('employees/', EmployeeListAPIView.as_view(), name='Employee-list'),
+    path('employees/create/', EmployeeCreateAPIView.as_view(), name='Employee-create'),
+    path('employees/<int:pk>/', EmployeeRetrieveAPIView.as_view(), name='Employee-retrieve'),
+    path('employees/<int:pk>/update/', EmployeeUpdateAPIView.as_view(), name='Employee-update'),
+    path('employees/<int:pk>/delete/', EmployeeDestroyAPIView.as_view(), name='Employee-delete'),
+
+    path('departments/', DepartmentListAPIView.as_view(), name='Department-list'),
+    path('departments/create/', DepartmentCreateAPIView.as_view(), name='Department-create'),
+    path('departments/<int:pk>/', DepartmentRetrieveAPIView.as_view(), name='Department-retrieve'),
+    path('departments/<int:pk>/update/', DepartmentUpdateAPIView.as_view(), name='Department-update'),
+    path('departments/<int:pk>/delete/', DepartmentDestroyAPIView.as_view(), name='Department-delete'),
+]

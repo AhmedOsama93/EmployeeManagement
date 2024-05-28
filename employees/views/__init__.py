@@ -1,28 +1,28 @@
-from employees.views.company_views import CompanyListViewSet, CompanyCreateViewSet, CompanyRetrieveViewSet, \
-    CompanyUpdateViewSet, CompanyDestroyViewSet
+from employees.views.company_views import CompanyListAPIView, CompanyCreateAPIView, CompanyRetrieveAPIView, \
+    CompanyUpdateAPIView, CompanyDestroyAPIView
 
-from employees.views.department_views import DepartmentListViewSet, DepartmentCreateViewSet, DepartmentRetrieveViewSet, \
-    DepartmentUpdateViewSet, DepartmentDestroyViewSet
+from employees.views.department_views import DepartmentListAPIView, DepartmentCreateAPIView, DepartmentRetrieveAPIView, \
+    DepartmentUpdateAPIView, DepartmentDestroyAPIView
 
-from employees.views.employee_views import EmployeeListViewSet, EmployeeCreateViewSet, EmployeeRetrieveViewSet, \
-    EmployeeUpdateViewSet, EmployeeDestroyViewSet
+from employees.views.employee_views import EmployeeListAPIView, EmployeeCreateAPIView, EmployeeRetrieveAPIView, \
+    EmployeeUpdateAPIView, EmployeeDestroyAPIView
 
 __all__ = (
-    "CompanyListViewSet",
-    "CompanyCreateViewSet",
-    "CompanyRetrieveViewSet",
-    "CompanyUpdateViewSet",
-    "CompanyDestroyViewSet",
+    "CompanyListAPIView",
+    "CompanyCreateAPIView",
+    "CompanyRetrieveAPIView",
+    "CompanyUpdateAPIView",
+    "CompanyDestroyAPIView",
 
-    "EmployeeListViewSet",
-    "EmployeeCreateViewSet",
-    "EmployeeRetrieveViewSet",
-    "EmployeeUpdateViewSet",
-    "EmployeeDestroyViewSet",
+    "EmployeeListAPIView",
+    "EmployeeCreateAPIView",
+    "EmployeeRetrieveAPIView",
+    "EmployeeUpdateAPIView",
+    "EmployeeDestroyAPIView",
 
-    "DepartmentListViewSet",
-    "DepartmentCreateViewSet",
-    "DepartmentRetrieveViewSet",
-    "DepartmentUpdateViewSet",
-    "DepartmentDestroyViewSet",
+    "DepartmentListAPIView",
+    "DepartmentCreateAPIView",
+    "DepartmentRetrieveAPIView",
+    "DepartmentUpdateAPIView",
+    "DepartmentDestroyAPIView",
 )

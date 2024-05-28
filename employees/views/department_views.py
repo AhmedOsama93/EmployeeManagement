@@ -6,31 +6,32 @@ class DepartmentViewSet(viewsets.ModelViewSet):
     serializer_class = DepartmentSerializer
 '''
 
-from rest_framework import viewsets, mixins
+from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView, UpdateAPIView, DestroyAPIView
+
 from employees.models import Department
 from employees.serializers import DepartmentSerializer
 
 
-class DepartmentListViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
+class DepartmentListAPIView(ListAPIView):
     queryset = Department.objects.all()
     serializer_class = DepartmentSerializer
 
 
-class DepartmentCreateViewSet(mixins.CreateModelMixin, viewsets.GenericViewSet):
+class DepartmentCreateAPIView(CreateAPIView):
     queryset = Department.objects.all()
     serializer_class = DepartmentSerializer
 
 
-class DepartmentRetrieveViewSet(mixins.RetrieveModelMixin, viewsets.GenericViewSet):
+class DepartmentRetrieveAPIView(RetrieveAPIView):
     queryset = Department.objects.all()
     serializer_class = DepartmentSerializer
 
 
-class DepartmentUpdateViewSet(mixins.UpdateModelMixin, viewsets.GenericViewSet):
+class DepartmentUpdateAPIView(UpdateAPIView):
     queryset = Department.objects.all()
     serializer_class = DepartmentSerializer
 
 
-class DepartmentDestroyViewSet(mixins.DestroyModelMixin, viewsets.GenericViewSet):
+class DepartmentDestroyAPIView(DestroyAPIView):
     queryset = Department.objects.all()
     serializer_class = DepartmentSerializer

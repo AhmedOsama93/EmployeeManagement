@@ -49,11 +49,16 @@ class Employee(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     email = models.EmailField(unique=True)
+    phone = PhoneNumberField(
+        blank=True,
+        null=True,
+        default=None,
+        error_messages={'unique': _("A user with that phone already exists.")})
     department = models.ForeignKey(Department, on_delete=models.CASCADE)
     age = models.PositiveIntegerField()
     join_date = models.DateField()
     image = models.ImageField(upload_to='employee_image/', null=True, blank=True)
-    country = models.CharField(max_length=30)
+    country = models.CharField(max_length=30, null=True)
 
     def __str__(self):
         return f"{self.email}"

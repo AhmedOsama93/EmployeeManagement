@@ -17,19 +17,19 @@ class DepartmentSerializer(serializers.ModelSerializer):
 
 
 class EmployeeSerializer(serializers.ModelSerializer):
-    country = serializers.SerializerMethodField()
-
     class Meta:
         model = Employee
-        fields = ('id', 'first_name', 'last_name', 'email', 'department', 'age', 'join_date', 'image', 'country')
+        fields = (
+            'id', 'first_name', 'last_name', 'email', 'phone', 'department', 'age', 'join_date', 'image', 'country')
 
-    def get_country(self):
+    def validate_country(self, value):
+
         if phone := self.initial_data.get('phone'):
             parsed_phone = phonenumbers.parse(phone, None)
             country_code = phonenumbers.region_code_for_number(parsed_phone)
 
             if country_code == 'IL':
                 country_code = "PS"
-            return country_code
-        raise serializers.ValidationError(_("Wrong country code."))
-
+            if country_code == value:
+                return value
+        raise serializers.ValidationError(_("Wrong country type."))

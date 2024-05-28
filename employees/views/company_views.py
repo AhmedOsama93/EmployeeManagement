@@ -7,34 +7,33 @@ class CompanyViewSet(viewsets.ModelViewSet):
     serializer_class = CompanySerializer
 '''
 
-from rest_framework import viewsets, mixins
+
+from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView, UpdateAPIView, DestroyAPIView
+
 from employees.models import Company
 from employees.serializers import CompanySerializer
 
 
-class CompanyListViewSet(mixins.ListModelMixin, viewsets.GenericViewSet
-                         ):
+class CompanyListAPIView(ListAPIView):
     queryset = Company.objects.all()
     serializer_class = CompanySerializer
 
 
-class CompanyCreateViewSet(mixins.CreateModelMixin, viewsets.GenericViewSet
-                           ):
+class CompanyCreateAPIView(CreateAPIView):
     queryset = Company.objects.all()
     serializer_class = CompanySerializer
 
 
-class CompanyRetrieveViewSet(mixins.RetrieveModelMixin, viewsets.GenericViewSet
-                             ):
+class CompanyRetrieveAPIView(RetrieveAPIView):
     queryset = Company.objects.all()
     serializer_class = CompanySerializer
 
 
-class CompanyUpdateViewSet(mixins.UpdateModelMixin, viewsets.GenericViewSet):
+class CompanyUpdateAPIView(UpdateAPIView):
     queryset = Company.objects.all()
     serializer_class = CompanySerializer
 
 
-class CompanyDestroyViewSet(mixins.DestroyModelMixin, viewsets.GenericViewSet):
+class CompanyDestroyAPIView(DestroyAPIView):
     queryset = Company.objects.all()
     serializer_class = CompanySerializer
