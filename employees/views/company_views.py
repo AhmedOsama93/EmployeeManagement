@@ -8,8 +8,8 @@ class CompanyViewSet(viewsets.ModelViewSet):
 '''
 
 from rest_framework import viewsets, mixins
-from .models import Company
-from .serializers import CompanySerializer
+from employees.models import Company
+from employees.serializers import CompanySerializer
 
 
 class CompanyListViewSet(mixins.ListModelMixin, viewsets.GenericViewSet

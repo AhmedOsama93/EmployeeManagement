@@ -35,3 +35,25 @@ class Company(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Department(models.Model):
+    name = models.CharField(max_length=100)
+    company = models.ForeignKey(Company, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
+
+
+class Employee(models.Model):
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    email = models.EmailField(unique=True)
+    department = models.ForeignKey(Department, on_delete=models.CASCADE)
+    age = models.PositiveIntegerField()
+    join_date = models.DateField()
+    image = models.ImageField(upload_to='employee_image/', null=True, blank=True)
+    country = models.CharField(max_length=30)
+
+    def __str__(self):
+        return f"{self.email}"
