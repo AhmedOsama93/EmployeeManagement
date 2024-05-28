@@ -1,43 +1,40 @@
-from rest_framework import viewsets
-from employees.models import Employee
-from employees.serializers import EmployeeSerializer
 
 '''
 you can use ModelViewSet like this but i prefer generic views 
  
-class EmployeeViewSet(viewsets.ModelViewSet):
-    queryset = Employee.objects.all()
-    serializer_class = EmployeeSerializer
+class CompanyViewSet(viewsets.ModelViewSet):
+    queryset = Company.objects.all()
+    serializer_class = CompanySerializer
 '''
 
 from rest_framework import viewsets, mixins
-from .models import Employee
-from .serializers import EmployeeSerializer
+from .models import Company
+from .serializers import CompanySerializer
 
 
-class EmployeeListViewSet(mixins.ListModelMixin, viewsets.GenericViewSet
-                          ):
-    queryset = Employee.objects.all()
-    serializer_class = EmployeeSerializer
+class CompanyListViewSet(mixins.ListModelMixin, viewsets.GenericViewSet
+                         ):
+    queryset = Company.objects.all()
+    serializer_class = CompanySerializer
 
 
-class EmployeeCreateViewSet(mixins.CreateModelMixin, viewsets.GenericViewSet
-                            ):
-    queryset = Employee.objects.all()
-    serializer_class = EmployeeSerializer
+class CompanyCreateViewSet(mixins.CreateModelMixin, viewsets.GenericViewSet
+                           ):
+    queryset = Company.objects.all()
+    serializer_class = CompanySerializer
 
 
-class EmployeeRetrieveViewSet(mixins.RetrieveModelMixin, viewsets.GenericViewSet
-                              ):
-    queryset = Employee.objects.all()
-    serializer_class = EmployeeSerializer
+class CompanyRetrieveViewSet(mixins.RetrieveModelMixin, viewsets.GenericViewSet
+                             ):
+    queryset = Company.objects.all()
+    serializer_class = CompanySerializer
 
 
-class EmployeeUpdateViewSet(mixins.UpdateModelMixin, viewsets.GenericViewSet):
-    queryset = Employee.objects.all()
-    serializer_class = EmployeeSerializer
+class CompanyUpdateViewSet(mixins.UpdateModelMixin, viewsets.GenericViewSet):
+    queryset = Company.objects.all()
+    serializer_class = CompanySerializer
 
 
-class EmployeeDestroyViewSet(mixins.DestroyModelMixin, viewsets.GenericViewSet):
-    queryset = Employee.objects.all()
-    serializer_class = EmployeeSerializer
+class CompanyDestroyViewSet(mixins.DestroyModelMixin, viewsets.GenericViewSet):
+    queryset = Company.objects.all()
+    serializer_class = CompanySerializer

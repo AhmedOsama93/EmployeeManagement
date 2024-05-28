@@ -1,19 +1,19 @@
 from rest_framework.routers import DefaultRouter
 from .views import (
-    EmployeeListViewSet,
-    EmployeeCreateViewSet,
-    EmployeeRetrieveViewSet,
-    EmployeeUpdateViewSet,
-    EmployeeDestroyViewSet
+    CompanyListViewSet,
+    CompanyCreateViewSet,
+    CompanyRetrieveViewSet,
+    CompanyUpdateViewSet,
+    CompanyDestroyViewSet
 )
 
-app_name = 'employees'
+app_name = 'Company'
 router = DefaultRouter()
 
-router.register(r'employees-list', EmployeeListViewSet, basename='employees-list')
-router.register(r'employees-create', EmployeeCreateViewSet, basename='employees-create')
-router.register(r'employees-retrieve', EmployeeRetrieveViewSet, basename='employees-retrieve')
-router.register(r'employees-update', EmployeeUpdateViewSet, basename='employees-update')
-router.register(r'employees-destroy', EmployeeDestroyViewSet, basename='employees-destroy')
+router.register(r'Company-list', CompanyListViewSet, basename='Company-list')
+router.register(r'Company-create', CompanyCreateViewSet, basename='Company-create')
+router.register(r'Company-retrieve', CompanyRetrieveViewSet, basename='Company-retrieve')
+router.register(r'Company-update', CompanyUpdateViewSet, basename='Company-update')
+router.register(r'Company-destroy', CompanyDestroyViewSet, basename='Company-destroy')
 
 urlpatterns = router.urls

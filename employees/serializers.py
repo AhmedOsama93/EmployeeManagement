@@ -1,9 +1,9 @@
 import phonenumbers
 from rest_framework import serializers
-from employees.models import Employee
+from employees.models import Company
 
 
-class EmployeeSerializer(serializers.ModelSerializer):
+class CompanySerializer(serializers.ModelSerializer):
     class Meta:
-        model = Employee
-        fields = ('id', 'first_name', 'last_name', 'email', 'position', 'date_joined')
+        model = Company
+        fields = '__all__'
