@@ -1,12 +1,19 @@
 from rest_framework.routers import DefaultRouter
-from .views import EmployeeViewSet
-from django.urls import path, include
-import employees
+from .views import (
+    EmployeeListViewSet,
+    EmployeeCreateViewSet,
+    EmployeeRetrieveViewSet,
+    EmployeeUpdateViewSet,
+    EmployeeDestroyViewSet
+)
 
-app_name = employees
+app_name = 'employees'
 router = DefaultRouter()
-router.register(r'employees', EmployeeViewSet)
 
-urlpatterns = [
-    path('', include(router.urls)),
-]
+router.register(r'employees-list', EmployeeListViewSet, basename='employees-list')
+router.register(r'employees-create', EmployeeCreateViewSet, basename='employees-create')
+router.register(r'employees-retrieve', EmployeeRetrieveViewSet, basename='employees-retrieve')
+router.register(r'employees-update', EmployeeUpdateViewSet, basename='employees-update')
+router.register(r'employees-destroy', EmployeeDestroyViewSet, basename='employees-destroy')
+
+urlpatterns = router.urls

@@ -8,11 +8,6 @@ class Employee(models.Model):
     first_name = models.CharField(max_length=50, blank=True, null=True)
     last_name = models.CharField(max_length=50, blank=True, null=True)
     email = models.EmailField(unique=True)
-    phone = PhoneNumberField(
-        blank=True,
-        null=True,
-        default=None,
-        error_messages={'unique': "A user with that phone already exists."})
 
     position = models.CharField(max_length=50)
     date_joined = models.DateField()
