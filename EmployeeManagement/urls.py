@@ -19,6 +19,7 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path('employees/', include('employees.urls', namespace='employees')),
+    path('users/', include('users.urls')),
 
     # ========== debug ============
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),

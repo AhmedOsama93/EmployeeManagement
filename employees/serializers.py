@@ -20,7 +20,9 @@ class EmployeeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Employee
         fields = (
-            'id', 'first_name', 'last_name', 'email', 'phone', 'department', 'age', 'join_date', 'image', 'country')
+            'id', 'first_name', 'last_name', 'email', 'phone', 'department', 'age', 'join_date', 'image', 'country',
+            'status'
+        )
 
     def validate_country(self, value):
 

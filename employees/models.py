@@ -39,22 +39,30 @@ class Company(models.Model):
 
 class Department(models.Model):
     name = models.CharField(max_length=100)
-    company = models.ForeignKey(Company, on_delete=models.CASCADE)
+    company = models.ForeignKey(Company, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.name
 
 
 class Employee(models.Model):
+    EMPLOYEE_STATUS_CHOICES = (
+        ('hired', 'Hired'),
+        ('pending', 'Pending'),
+        ('terminated', 'Terminated'),
+    )
+
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
-    email = models.EmailField(unique=True)
+    email = models.EmailField(unique=True, null=False)
+    company = models.ForeignKey(Company, related_name='employees', on_delete=models.CASCADE, null=True)
+    department = models.ForeignKey(Department, related_name='employees', on_delete=models.CASCADE)
+    status = models.CharField(max_length=20, choices=EMPLOYEE_STATUS_CHOICES)
     phone = PhoneNumberField(
         blank=True,
         null=True,
         default=None,
         error_messages={'unique': _("A user with that phone already exists.")})
-    department = models.ForeignKey(Department, on_delete=models.CASCADE)
     age = models.PositiveIntegerField()
     join_date = models.DateField()
     image = models.ImageField(upload_to='employee_image/', null=True, blank=True)
