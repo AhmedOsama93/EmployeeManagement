@@ -1,4 +1,4 @@
-#O verview
+# Overview
 The Employee Management System is designed to streamline the management of companies, departments, and employees. It provides a comprehensive solution for creating, reading, updating, and deleting (CRUD) records for these entities. The system includes a workflow for handling the onboarding process of new employees and implements role-based access control to ensure secure data handling.
 
 
